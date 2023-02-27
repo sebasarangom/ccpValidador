@@ -18,7 +18,6 @@ def kafkaProducer():
     req = request.get_json()
     json_payload = json.dumps(req)
     json_payload = str.encode(json_payload)
-		# push data into INFERENCE TOPIC
     producer.send(TOPIC_NAME, json_payload)
     producer.flush()
     print("Sent to consumer")
